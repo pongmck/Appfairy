@@ -13,7 +13,7 @@ export const transpile = async (config) => {
     fs.readdir(config.input).then((files) => {
       inputFiles = files
     }),
-    git.removeAppfairyFiles().then((files) => {
+    git.removeAppfairyFiles(true).then((files) => {
       outputFiles.push(...files)
     }),
   ])

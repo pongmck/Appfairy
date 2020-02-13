@@ -43,7 +43,11 @@ export const commit = (files, message, stdio = 'inherit') => {
   })
 }
 
-export const removeAppfairyFiles = async () => {
+export const removeAppfairyFiles = async (bypass = false) => {
+  if (bypass) {
+    return []
+  }
+
   const { stdout: diffFiles } = await execa('git', [
     'diff', '--name-only'
   ])
